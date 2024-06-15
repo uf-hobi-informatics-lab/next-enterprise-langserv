@@ -29,9 +29,27 @@ conda install poetry #langserv uses poetry to manage python dependencies https:/
 pip install -U langchain-core langchain-community "langserve[all]" langchain-cli langsmith
 ```
 
-### 2. Use `gh` to fork
+### 2. Use `gh` to fork; this will make your repo public;
 ```bash
 gh repo fork uf-hobi-informatics-lab/next-enterprise-langserv --fork-name <your_app_name> --clone
+```
+If you want to have a private "fork", do this 
+```bash
+git clone --bare https://github.com/uf-hobi-informatics-lab/next-enterprise-langserv.git <your_app_name>
+cd <your_app_name>
+
+gh repo create <your_app_name> --private ## create a empty repo under your own account; assuming you have already run gh auth, etc.
+git push --mirror <your_github_link/your_app_name>
+
+cd ..
+rm -rf <your_app_name> #delete the old one
+
+git clone <your_github_link/your_app_name>
+cd <your_app_name>
+
+## To pull updates from the public templates (in case this gets updated, and there are features you want to merge into your private repo
+git remote add template https://github.com/uf-hobi-informatics-lab/next-enterprise-langserv
+git pull template main
 ```
 
 ### 3. Run it
