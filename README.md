@@ -29,19 +29,24 @@ conda install poetry #langserv uses poetry to manage python dependencies https:/
 pip install -U langchain-core langchain-community "langserve[all]" langchain-cli langsmith
 ```
 
-### 2. Run it
+### 2. Use `gh` to fork
 ```bash
-    yarn
+gh repo fork bianjiang/next-enterprise-langserv --fork-name <your_app_name> --clone
+```
 
+### 3. Run it
+```bash
+    cd <your_app_name>
+    yarn
     yarn dev
 ```
 
-### 3. Use it
+### 4. Use it
 * Open [http://localhost:3000](http://localhost:3000) to see the web frontend.
 
 * Open [http://localhost:8000](http://localhost:8000) to see the langchain server.
 
-### 4. MISC
+### 5. MISC
 * This project uses a git hook to enforce [conventional commits](https://github.com/qoomon/git-conventional-commits). To install the git hook, run the following command in the root directory of the project:
 ```sh
 brew install pre-commit
