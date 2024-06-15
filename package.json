@@ -1,9 +1,11 @@
 {
-  "name": "next-enterprise",
+  "name": "next-enterprise-langserv",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env FORCE_COLOR=1 next dev",
+    "langserv-dev": "uvicorn langserv.app.server:app --reload",
+    "next-dev": "cross-env FORCE_COLOR=1 next dev",
+    "dev": "concurrently \"npm run next-dev\" \"npm run langserv-dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
