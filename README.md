@@ -33,7 +33,7 @@ pip install -U langchain-core langchain-community "langserve[all]" langchain-cli
 ```bash
 gh repo fork uf-hobi-informatics-lab/next-enterprise-langserv --fork-name <your_app_name> --clone
 ```
-If you want to have a private "fork", do this 
+### If you want to have a `private` "fork", do this 
 ```bash
 git clone --bare https://github.com/uf-hobi-informatics-lab/next-enterprise-langserv.git <your_app_name>
 cd <your_app_name>
