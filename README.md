@@ -31,7 +31,7 @@ pip install -U langchain-core langchain-community "langserve[all]" langchain-cli
 
 ### 2. Use `gh` to fork
 ```bash
-gh repo fork bianjiang/next-enterprise-langserv --fork-name <your_app_name> --clone
+gh repo fork uf-hobi-informatics-lab/next-enterprise-langserv --fork-name <your_app_name> --clone
 ```
 
 ### 3. Run it
