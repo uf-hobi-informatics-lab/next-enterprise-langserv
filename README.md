@@ -24,7 +24,7 @@ To get started with this boilerplate, follow these steps:
 conda create -n langchain
 conda activate langchain
 
-conda install poetry #langserv uses poetry to manage python dependencies https://python-poetry.org/
+pip install -U poetry #langserv uses poetry to manage python dependencies https://python-poetry.org/
 
 pip install -U langchain-core langchain-community "langserve[all]" langchain-cli langsmith
 ```
