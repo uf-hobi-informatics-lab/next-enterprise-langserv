@@ -87,6 +87,25 @@ npx shadcn-ui@latest add form button label dropdown-menu badge drawer input sele
 * Take a look at "playground.tsx", which has set up dark model
 * It aslo links to the backend with some example codes on both the frontend and backend side
   * You can access through http://localhost:3000/playground
+* We use `next.config.mjx` rewrites to route calls to the backend 
+```json
+{
+  source: "/backend/:path*",
+  destination: process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000/:path*" : "/"
+}
+```
+   * In your front, endpoint can be written as 
+   ```ts
+    const endpoint = `backend/playground/get`
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url: data.message }),
+    })
+   ```
+   * It calls "http://127.0.0.1:8000/playground/get"
 
 ## langserv 
 * Server side structure; read these https://fastapi.tiangolo.com/tutorial/bigger-applications/;
