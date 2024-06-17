@@ -84,8 +84,9 @@ npx shadcn-ui@latest add form button label dropdown-menu badge drawer input sele
 ```
 
 ## Frontend
-* Take a look at "playgroup.tsx", which has set up dark model
-* It aslo links to the backend with some example codes on both the frontend and backend side. 
+* Take a look at "playground.tsx", which has set up dark model
+* It aslo links to the backend with some example codes on both the frontend and backend side
+  * You can access through http://localhost:3000/playground
 
 ## langserv 
 * Server side structure; read these https://fastapi.tiangolo.com/tutorial/bigger-applications/;
