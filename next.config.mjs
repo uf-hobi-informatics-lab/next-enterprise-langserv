@@ -19,6 +19,10 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
       { source: "/api/healthz", destination: "/api/health" },
       { source: "/health", destination: "/api/health" },
       { source: "/ping", destination: "/api/health" },
+      {
+        source: "/backend/:path*",
+        destination: process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000/:path*" : "/",
+      },
     ]
   },
 })

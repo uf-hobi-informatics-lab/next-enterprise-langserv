@@ -53,10 +53,18 @@ git pull template main
 ```
 
 ### 3. Run it
+You need two terminal.
+In terminal 1, run frontend
 ```bash
-    cd <your_app_name>
-    yarn
-    yarn dev
+  yarn dev
+```
+In terminal 2, run backend
+```bash
+conda activate langchain # make sure you use the right python venv
+
+cd langserv 
+uvicorn app.server:app --reload
+
 ```
 
 ### 4. Use it
@@ -65,13 +73,40 @@ git pull template main
 * Open [http://localhost:8000](http://localhost:8000) to see the langchain server.
 
 ### 5. MISC
-* This project uses a git hook to enforce [conventional commits](https://github.com/qoomon/git-conventional-commits). To install the git hook, run the following command in the root directory of the project:
+* Please strict follow https://www.conventionalcommits.org/en/v1.0.0/#summary; and this project uses a git hook to enforce [conventional commits](https://github.com/qoomon/git-conventional-commits). To install the git hook, run the following command in the root directory of the project:
 ```sh
 brew install pre-commit
 pre-commit install -t commit-msg
 ```
+* It uses `shadcn-ui` from https://ui.shadcn.com/docs; by default it installed 
+```bash
+npx shadcn-ui@latest add form button label dropdown-menu badge drawer input select textarea tooltip scroll-area
+```
 
-### Langserv related
+## Frontend
+* Take a look at "playgroup.tsx", which has set up dark model
+* It aslo links to the backend with some example codes on both the frontend and backend side. 
+
+## langserv 
+* Server side structure; read these https://fastapi.tiangolo.com/tutorial/bigger-applications/;
+```
+- app/
+	- routers/                       -----API routes
+	- schemas/                       ----- Pydantic models
+	- services/                      ----- Business logic
+	- utils/                         ----- Utils
+	- playground/                    -----Playground
+	- dependencies.py                ----- dependencies across modules when needed
+	- server.py                      ----- main file
+	- cli.py                         -----commandline
+	- exc.py                         -----Exception handler
+- tests/
+- docs/
+	- README.md
+- pyproject.toml                   ----- peotry config; python dependency management
+- README.md
+- .env                             ----- dotenv (python-dotenv) for environment variables
+```
 * Operate under the `langserv` folder
 ```bash
 cd ./langserv
@@ -80,6 +115,7 @@ cd ./langserv
 ```bash
 poetry add langchain-openai
 ```
+* **[Deprecated]** The `packages` are not really used; as it breaks some of the dependencies;
 * If you want to add a `package` using existing templates; https://python.langchain.com/v0.2/docs/templates/;
   * e.g., the `neo4j-advanced-rag`; https://python.langchain.com/v0.2/docs/templates/neo4j-advanced-rag/
 
