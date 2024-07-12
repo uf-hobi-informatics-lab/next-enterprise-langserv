@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "langserv": "cd langserv && uvicorn app.server:app --reload",
     "next-dev": "cross-env FORCE_COLOR=1 next dev",
     "dev": "npm run next-dev",
     "build": "next build",
